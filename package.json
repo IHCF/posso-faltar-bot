@@ -1,0 +1,29 @@
+{
+  "name": "fatec-chatbot-siga",
+  "version": "1.0.0",
+  "description": "Chatbot em NodeJS capaz de raspar dados do SIGA, para resgatar presenças dos alunos da FATEC utilizando PhantomJS.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "botframework",
+    "API.ai",
+    "NodeJS",
+    "PhanthomJS",
+    "Restify",
+    "chatbot",
+    "SIGA"
+  ],
+  "author": "Lucas Varlesse, Felipe Menino, Filipe Menezes",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "api-ai-recognizer": "^1.1.1",
+    "botbuilder": "^3.9.1",
+    "fatec-posso-faltar": "^1.0.0",
+    "nodemon": "^1.11.0",
+    "package.json": "^2.0.1",
+    "restify": "^5.2.0"
+  }
+}
