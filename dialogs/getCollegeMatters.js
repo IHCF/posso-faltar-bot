@@ -36,7 +36,7 @@ library.dialog('possoFaltarHoje', [
         }
       }
 
-      // Temporário
+      // Temporário (Será adicionado retorno do json)
       if(totalFaltas >= 11 && totalFaltas <= 18){
         msg = "pode faltar, mas tome cuidado você já está com " + totalFaltas + ' faltas';
       } else if(totalFaltas >= 19 && totalFaltas <= 20){
@@ -58,19 +58,29 @@ library.dialog('faltasTotal', [
 
   (session) => {
 
-    dump = session.userData.collegeMatters;
+    let good, bad;
 
-    session.send('Veja suas faltas e presenças totais');
+    dump = session.userData.collegeMatters;
     for(var i in dump){
-      session.send(dump[i].nome + '\n\n' +'Quantidade de presenças: ' + dump[i].presences + '\n\n' + 
-                  'Quantidade de faltas: ' + dump[i].absences);
+      msg = '';
+      msg = msg.concat(dump[i].nome + '\n\n' +'Quantidade de presenças: ' + dump[i].presences + '\n\n' + 
+      'Quantidade de faltas: ' + dump[i].absences);
     
       if(parseInt(dump[i].absences, 10) > parseInt(dump[i].presences, 10)){
-        session.send('Cuidado nesta matéria, você está com mais faltas que presenças');
-      } else {
-        session.send('Opa! Nesta matéria você está bem');
-      }
+          msg = msg.concat('\n\nCuidado nesta matéria 😕😓');
+          good++; 
+        } else  {
+        msg = msg.concat('\n\nOpa! Nesta matéria você está bem 😎');
+          bad++;
+        }
+        session.send(msg);
     }
+
+    if(good > bad)
+      session.send('Pelo que percebi, no geral você está bem. Parabéns 😁');
+    else
+      session.send('Cuidado! A presença é importante e pelo que percebi, você tem faltado bastante 😐');
+
     session.replaceDialog('getFinally:/');
   }
 ])
@@ -79,7 +89,6 @@ library.dialog('faltasPerMateria', [
   (session) => {
 
     dump = session.userData.collegeMatters;
-
     let allMetters = [];
 
     for(var i in dump){
@@ -87,15 +96,11 @@ library.dialog('faltasPerMateria', [
         dump[i].nome
       )
     }
-
     builder.Prompts.choice(session, 'Qual matéria você deseja consultar as informações', allMetters, { listStyle: builder.ListStyle.button});
-
   },
   (session, results) => {
 
-
     for(var i in dump){
-      
       if(dump[i].nome == results.response.entity){
         session.send(dump[i].nome + '\n\n' + 'Quantidade de presenças: ' + dump[i].presences + 
         '\n\n' + 'Quantidade de faltas: ' + dump[i].absences)
