@@ -13,13 +13,13 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 })
 
 const connector = new builder.ChatConnector({
-    appId: "BOTFRAMEWORK_ID",
+    appId: "ID",
     appPassword: "PASSWORD"
 });
 
 // let connector = new builder.ConsoleConnector().listen();
 const bot = new builder.UniversalBot(connector);
-const recognizer = new apiairecognizer("API.AI KEY");
+const recognizer = new apiairecognizer("API AI KEY");
 const intents = new builder.IntentDialog({
   recognizers: [recognizer]
 })
@@ -50,26 +50,4 @@ intents.matches('smalltalk.greetings.hello', function(session, results) {
     session.send('Olá eu sou o chatbot que te ajuda com o SIGA, muito prazer em te conhecer!:)');
     session.beginDialog('meetUser:/');
   }
-})
-
-intents.matches('smalltalk.greetings.bye', function(session, results) {
-   let fulfillment = builder.EntityRecognizer.findEntity(results.entities, 'fulfillment')
-    if (fulfillment) {
-      let speech = fulfillment.entity
-      session.send(speech)
-    }
-    else {
-      session.send('Até a próxima!')
-    }
-})
-
-intents.matches('Faltas', function(session, results) {
-   let fulfillment = builder.EntityRecognizer.findEntity(results.entities, 'fulfillment')
-    if (fulfillment) {
-
-    }
-    else {
-      let speech = fulfillment.entity
-      session.send(speech)
-    }
 })

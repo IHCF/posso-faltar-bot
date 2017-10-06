@@ -80,6 +80,9 @@ library.dialog('/', [
       }
     });
 
+
+    session.beginDialog('getClassroom');
+
   },
   (session, results) => {
 

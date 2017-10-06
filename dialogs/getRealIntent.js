@@ -22,7 +22,8 @@ library.library(getCollegeMatters);
 
 library.dialog('/', [
   (session) => {
-    builder.Prompts.choice(session, 'O que deseja que eu veja por você?', [option1, option2, option3], { listStyle: builder.ListStyle.button })
+    builder.Prompts.choice(session, 'O que deseja que eu veja por você?', 
+    [option1, option2, option3], { listStyle: builder.ListStyle.button })
   },
   (session, results) => {
       switch (results.response.entity) {

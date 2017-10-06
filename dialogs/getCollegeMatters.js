@@ -36,16 +36,16 @@ library.dialog('possoFaltarHoje', [
         }
       }
 
+      // Temporário
       if(totalFaltas >= 11 && totalFaltas <= 18){
         msg = "pode faltar, mas tome cuidado você já está com " + totalFaltas + ' faltas';
       } else if(totalFaltas >= 19 && totalFaltas <= 20){
         msg = "não pode faltar, já que você tem quase um mês de faltas, que coisa feia !";        
       } else if(totalFaltas <= 10 && totalFaltas == 0){
-        msg = "está com uma média boa de faltas. Parabéns! ";
+        msg = "está com uma média boa de faltas. Fique em casa e durma mais um pouco ";
       }
 
       session.send('Na matéria ' + dump[i].nome + ' você ' + msg);
-
       totalFaltas = 0;
 
     }
@@ -93,26 +93,15 @@ library.dialog('faltasPerMateria', [
   },
   (session, results) => {
 
+
     for(var i in dump){
+      
       if(dump[i].nome == results.response.entity){
-        
-        let login = session.userData.login;
-        let password = session.userData.password;
-        let classroom = 'A';
-
-        const possoFaltar = new PossoFaltar({login, password, classroom});
-
-        possoFaltar.verificarAssiduidadePorMateria({initials: dump[i].disciplineInitials}).then(result => {
-          session.send(dump[i].nome + '\n\n' +'Quantidade de presenças: ' + dump[i].presences + '\n\n' + 
-          'Quantidade de faltas: ' + dump[i].absences);
-              if(parseInt(dump[i].absences, 10) > parseInt(dump[i].presences, 10)){
-              session.send('Cuidado nesta matéria, você está com mais faltas que presenças');
-              } else {
-              session.send('Opa! Nesta matéria você está bem');
-              } 
-        })
+        session.send(dump[i].nome + '\n\n' + 'Quantidade de presenças: ' + dump[i].presences + 
+        '\n\n' + 'Quantidade de faltas: ' + dump[i].absences)
       }
     }
+    session.replaceDialog('getFinally:/');
   }
 ])
 

@@ -25,6 +25,7 @@ library.dialog('/', [
             case option1:
                 session.send('Beleza! Vou exibir o menu novamente');
                 session.replaceDialog("getRealIntent:/"); 
+                break;
             case option2:
                 session.send('Certo, vou estar aqui se precisar =D');
         }
