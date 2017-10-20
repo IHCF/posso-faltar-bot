@@ -5,11 +5,12 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha spec"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "botframework",
     "API.ai",
+    "Dialogflow"
     "NodeJS",
     "PhanthomJS",
     "Restify",
@@ -22,7 +23,6 @@
     "api-ai-recognizer": "^1.1.1",
     "botbuilder": "^3.9.1",
     "fatec-posso-faltar": "^1.0.0",
-    "mocha": "^4.0.1",
     "nodemon": "^1.11.0",
     "package.json": "^2.0.1",
     "restify": "^5.2.0"

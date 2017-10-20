@@ -1,5 +1,5 @@
 /*
-  Este módulo permite ao usuário escolher as opções 
+  Este módulo permite ao usuário escolher as opções
   que deseja consultar com o bot
 
   Autores:
@@ -12,41 +12,23 @@ const builder = require('botbuilder');
 const PossoFaltar = require('fatec-posso-faltar');
 const getCollegeMatters = require('./getCollegeMatters');
 const library = new builder.Library('getRealIntent');
+const utils = require('../utils/utils.js');
 
-const option1 = 'Todas as faltas';
-const option2 = 'Faltas por matéria';
-const option3 = 'Ver se pode faltar hoje';
-const option4 = 'Sair';
+const intents = utils.intents;
 
 library.library(getCollegeMatters);
+library.dialog('/', intents);
 
-library.dialog('/', [
-  (session) => {
-    builder.Prompts.choice(session, 'O que deseja que eu veja por você?', 
-    [option1, option2, option3], { listStyle: builder.ListStyle.button })
-  },
-  (session, results) => {
-      switch (results.response.entity) {
-        case option1:
-          session.send('Vamos verificar se você tem assistido as aulas');
-          session.beginDialog('getCollegeMatters:faltasTotal');
-          break
-        case option2:
-          session.send('Vejamos se você tem ido nas aulas...');
-          session.beginDialog('getCollegeMatters:faltasPerMateria');
-          break
-        case option3:
-          session.send('Vendo se você pode dormir...');
-          session.beginDialog('getCollegeMatters:possoFaltarHoje');
-          break
-        case option4:
-          session.send('Ok, tudo bem! quem sabe uma outra hora... até a próxima');
-          session.endConversation();
-          break;
-        default:
-          session.send("Opa! Não entendi absolutamente nada");
-          break;
-      }
-}]).cancelAction('cancel', null, { matches: /^cancelar/i })
+intents.matches('possoFaltar.Intent', function(session, results) {
+    session.beginDialog('getCollegeMatters:possoFaltarHoje');
+})
+
+intents.matches('faltasPorMateria.Intent', function(session, results){
+    session.beginDialog('getCollegeMatters:faltasPerMateria');
+})
+
+intents.matches('faltasTotal.Intent', function(session, results) {
+    session.beginDialog('getCollegeMatters:faltasTotal');
+})
 
 module.exports = library
