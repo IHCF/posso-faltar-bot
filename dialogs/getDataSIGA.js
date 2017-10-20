@@ -13,14 +13,14 @@ const PossoFaltar = require('fatec-posso-faltar');
 const builder = require('botbuilder');
 const library = new builder.Library('getDataSIGA');
 
-let collegeMatters = [];
+let collegeMatters = []
 
 // Diálogo para pegar o login do usuário
 library.dialog('getLogin', [
   (session) => {
 
     builder.Prompts.text(session, 'Qual seu nome de usuário do Siga');
-  
+
   },
   (session, results) => {
     session.endDialogWithResult(results)
@@ -64,22 +64,21 @@ library.dialog('/', [
     const login = session.userData.login;
     const password = session.userData.password;
     const classroom = 'A';
-    // const log = true;
+    const log = true;
 
     const possoFaltar = new PossoFaltar({login, password, classroom});
     possoFaltar.verificarAssiduidadeTotal().then(result => {
 
-      for(var i = 0; i < result.attendances.length; i++){ 
-        collegeMatters.push({      
-          "sigla": result.attendances[i].disciplineInitials, 
-          "nome" : result.attendances[i].name, 
-          "absences": result.attendances[i].absences, 
-          "presences": result.attendances[i].presences 
-         }); 
-         console.log(collegeMatters);
+      for(var i = 0; i < result.attendances.length; i++){
+        collegeMatters.push({
+          "sigla": result[i].disciplineInitials,
+          "nome" : result[i].name,
+          "absences": result[i].absences,
+          "maxAbsences": result[i].maxAbsences
+          "presences": result[i].presences
+         });
       }
     });
-
 
     session.beginDialog('getClassroom');
 
@@ -87,7 +86,8 @@ library.dialog('/', [
   (session, results) => {
 
     session.userData.collegeMatters = collegeMatters;
-    session.replaceDialog("getRealIntent:/"); 
+    session.send('Tudo configurado, agora basta me dizer o que você precisa =D');
+    session.replaceDialog("getRealIntent:/");
   }
 ]).cancelAction('cancel', null, { matches: /^cancelar/i })
 
