@@ -19,15 +19,15 @@ const intents = utils.intents;
 library.library(getCollegeMatters);
 library.dialog('/', intents);
 
-intents.matches('possoFaltar.Intent', function(session, results) {
+intents.matches('possoFaltar.Quest', function(session, results) {
     session.beginDialog('getCollegeMatters:possoFaltarHoje');
 })
 
-intents.matches('faltasPorMateria.Intent', function(session, results){
-    session.beginDialog('getCollegeMatters:faltasPerMateria');
+intents.matches('faltasPorMateria.Quest', function(session, results){
+    session.beginDialog('getCollegeMatters:faltasPerMateria')
 })
 
-intents.matches('faltasTotal.Intent', function(session, results) {
+intents.matches('faltasTotal.Quest', function(session, results) {
     session.beginDialog('getCollegeMatters:faltasTotal');
 })
 
