@@ -7,7 +7,6 @@
     Felipe Menino
     Filipe Meneses
 */
-
 const builder = require('botbuilder');
 const getPermission = require('./getPermission');
 const getRealIntent = require('./getRealIntent');
@@ -25,7 +24,7 @@ library.dialog('/', [
     session.userData.name = results.response;
     session.send('Adorei seu nome '  +session.userData.name +' !');
     session.beginDialog('getPermission:/');
-  } 
-]).cancelAction('cancel', null, { matches: /^cancelar/i })
+  }
+])
 
 module.exports = library
