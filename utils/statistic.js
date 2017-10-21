@@ -9,8 +9,19 @@
 */
 
 // Calcula a média de presença do aluno no mês
-function calcMedia(){
+function calcMedia(data, name){
 
+  var final = 0;
+  for (var i in data){
+    if (data[i].nome == name){
+      let v1 = parseInt(data[i].maxAbsences);
+      let v2 = parseInt(data[i].absences);
+      v2 = v2 * 100;
+
+      final = (v2 / v1) - 100;
+    }
+  }
+  return '\n\nPorcentagem de presença: ' + Math.abs(final) + '%';
 }
 
 // Gera a probabilidade de reprovação
@@ -27,7 +38,7 @@ function verifyEspec(name, data){
       msg = data[i].nome + '\n\n' + 'Quantidade de presenças: ' + data[i].presences +
       '\n\n' + 'Quantidade de faltas: ' + data[i].absences
   }
-  return msg;
+  return msg + '\n' + calcMedia(data, name);
 }
 
 // Verifica a situação total do aluno
