@@ -9,7 +9,7 @@
 */
 
 // Calcula a média de presença do aluno no mês
-function calcMedia(data, name){
+function calcMeanPresence(data, name){
 
   var final = 0;
   for (var i in data){
@@ -38,7 +38,7 @@ function verifyEspec(name, data){
       msg = data[i].nome + '\n\n' + 'Quantidade de presenças: ' + data[i].presences +
       '\n\n' + 'Quantidade de faltas: ' + data[i].absences
   }
-  return msg + '\n' + calcMedia(data, name);
+  return msg + '\n' + calcMeanPresence(data, name);
 }
 
 // Verifica a situação total do aluno
@@ -99,10 +99,9 @@ function verifyAbsences(data){
 }
 
 module.exports = {
-  calcMedia,
+  calcMeanPresence,
   verifyAbsences,
   verifyTotal,
   verifyEspec,
-  calcMedia,
   calcProbabilidade
 }
