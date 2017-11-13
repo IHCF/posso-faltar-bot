@@ -27,7 +27,7 @@ Por ser feito utilizando o BotFramework, o bot pode ser utilizados em várias pl
 
 ## ToDo
 
-* Adicionar banco de dados para armazenar informações do usuário;
-* Cálculo probabilístico sobre a reprovação do usuário;
-* Porcentagem de presenças [X];
-* Adicionar mais vida aos diálogos
+- [ ] Adicionar banco de dados para armazenar informações do usuário
+- [ ] Cálculo probabilístico sobre a reprovação do usuário
+- [ ] Porcentagem de presenças
+- [ ] Adicionar mais vida aos diálogos
