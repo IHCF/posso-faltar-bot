@@ -9,10 +9,10 @@ const getPermission = require('./dialogs/getPermission');
 const getDataSIGA = require('./dialogs/getDataSIGA');
 const getRealIntent = require('./dialogs/getRealIntent');
 
-const server = restify.createServer()
+const server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('Executando em %s',server.url) ;
-})
+   console.log('Executando em %s', server.url) ;
+});
 
 const connector = utils.connector;
 const intents = utils.intents;
@@ -31,7 +31,11 @@ intents.matches('boasVindas.Intent', function(session, results) {
   if (session.userData.name != undefined){
       session.beginDialog('getRealIntent:/');
   } else {
-    session.send('Olá eu sou o chatbot que te ajuda com o SIGA, muito prazer em te conhecer!:)');
+    session.send('Olá eu sou o Don Adams, e trabalho como um inspetor, que ira te ajudar a consultar informações do SIGA de forma rápida, muito prazer em te conhecer! 😃😁😀');
     session.beginDialog('meetUser:/');
   }
 })
+
+intents.onDefault(function(session){
+  session.send("Desculpe, não consegui entender o que você disse");
+});

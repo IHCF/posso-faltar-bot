@@ -8,6 +8,18 @@
     Filipe Meneses
 */
 
+/*
+  Favoravel:
+    - Notas boas
+    - Presenças boas
+  Desvaforavel:
+    - Notas ruins
+    - Presenças ruins
+*/
+
+var favor = 2;
+var desfavor = 2;
+
 // Calcula a média de presença do aluno no mês
 function calcMeanPresence(data, name){
 
@@ -26,7 +38,10 @@ function calcMeanPresence(data, name){
 
 // Gera a probabilidade de reprovação
 function calcProbabilidade(){
-
+  /*
+    prob = n de resultados favoraveis / total de resultados = prob
+  */
+  return Math.floor((favor / desfavor) * 100) + '';
 }
 
 // Verifica a situação de presença em uma matéria escolhida pelo usuário
@@ -44,8 +59,8 @@ function verifyEspec(name, data){
 // Verifica a situação total do aluno
 function verifyTotal(data){
 
-  let good, bad, finall;
-  let msg = '';
+  var good = 0, bad = 0, finall = '';
+  var msg = '';
 
   for(var i in data){
     msg = msg.concat(data[i].nome + '\n\n' +'Quantidade de presenças: ' + data[i].presences + '\n\n' +
@@ -58,10 +73,11 @@ function verifyTotal(data){
 
   if(good > bad)
     finall = 'Pelo que percebi, no geral você está bem. Parabéns 😁';
-  else
-    finall = 'Cuidado! A presença é importante e pelo que percebi, você tem faltado bastante 😐';
-
-  return msg + '\n\n\n\n' + finall;
+  else{
+    desfavor += 1
+    finall = 'Cuidado! A presença é importante e pelo que percebi você tem muitas faltas';
+  }
+  return [msg + '\n\n\n\n' + finall, good, bad];
 }
 
 // Verifica a situação do aluno com relação as faltas
@@ -89,12 +105,11 @@ function verifyAbsences(data){
 
     }
     if (nonFalta > good && nonFalta > choose)
-      msg = "Cara...Vai para a faculdade, você está bem ruim de presença nas matérias de hoje";
+      msg = "Cara...Vai para a faculdade, você está bem ruim de presença nas matérias de hoje 😱";
     else if (good > nonFalta && good > choose)
       msg = "Hey! Você pode faltar tranquilo!";
     else if (choose > nonFalta && choose > good)
       msg = "Assim, você até pode faltar, MAS, não conte com isso das próximas vezes";
-
     return msg;
 }
 

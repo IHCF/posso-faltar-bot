@@ -14,7 +14,7 @@ Chatbot em NodeJS capaz de raspar dados do SIGA, para resgatar presenças dos al
 
 ## Demonstração de interação
 
-[![DEMO](./imgs/back-channel.png)](https://youtu.be/DjYLdhQyDbs)
+[![DEMO](./images/back-channel.png)](https://youtu.be/DjYLdhQyDbs)
 
 ## Plataformas
 

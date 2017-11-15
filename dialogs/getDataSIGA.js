@@ -18,9 +18,7 @@ let collegeMatters = []
 // Diálogo para pegar o login do usuário
 library.dialog('getLogin', [
   (session) => {
-
     builder.Prompts.text(session, 'Qual seu nome de usuário do Siga');
-
   },
   (session, results) => {
     session.endDialogWithResult(results)
@@ -30,9 +28,7 @@ library.dialog('getLogin', [
 // Diálogo para pegar a senha do usuário
 library.dialog('getPassword', [
   (session) => {
-
     builder.Prompts.text(session, 'Sua senha...');
-
   },
   (session, results) => {
     session.endDialogWithResult(results);
@@ -74,14 +70,13 @@ library.dialog('/', [
           "sigla": result[i].disciplineInitials,
           "nome" : result[i].name,
           "absences": result[i].absences,
-          "maxAbsences": result[i].maxAbsences
+          "maxAbsences": result[i].maxAbsences,
           "presences": result[i].presences
          });
       }
     });
 
     session.beginDialog('getClassroom');
-
   },
   (session, results) => {
 

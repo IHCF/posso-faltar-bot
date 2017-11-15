@@ -25,4 +25,8 @@ intents.matches('nope.Intent', function(session, results) {
   session.replaceDialog('getRealIntent:/');
 });
 
+intents.onDefault(function(session){
+  session.send("Nossa, desculpe, não consegui entender absolutamente nada do que você disse 😵");
+});
+
 module.exports = library
