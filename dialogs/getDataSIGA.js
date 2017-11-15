@@ -70,7 +70,7 @@ library.dialog('/', [
           "sigla": result[i].disciplineInitials,
           "nome" : result[i].name,
           "absences": result[i].absences,
-          "maxAbsences": result[i].maxAbsences
+          "maxAbsences": result[i].maxAbsences,
           "presences": result[i].presences
          });
       }
