@@ -41,7 +41,7 @@ function calcProbabilidade(){
   /*
     prob = n de resultados favoraveis / total de resultados = prob
   */
-  return Math.floor((favor / desfavor) * 100) + '%';
+  return Math.floor((favor / desfavor) * 100) + '';
 }
 
 // Verifica a situação de presença em uma matéria escolhida pelo usuário
