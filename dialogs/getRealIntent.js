@@ -19,6 +19,7 @@ const intents = utils.intents;
 
 library.library(getCollegeMatters);
 library.library(freeTalk);
+
 library.dialog('/', intents);
 
 intents.matches('possoFaltar.Quest', function(session, results) {
