@@ -10,8 +10,9 @@
 const builder = require('botbuilder');
 const getPermission = require('./getPermission');
 const getRealIntent = require('./getRealIntent');
-
 const library = new builder.Library('meetUser');
+
+const nopes = ['não', 'Não', 'nao', 'não'];
 
 library.library(getPermission);
 library.library(getRealIntent);
@@ -22,8 +23,14 @@ library.dialog('/', [
   },
   (session, results) => {
     session.userData.name = results.response;
-    session.send('Adorei seu nome '  +session.userData.name +' !');
-    session.beginDialog('getPermission:/');
+
+    if (nopes.includes(session.userData.name)){
+      session.send('Então acho que não posso te ajudar');
+      session.endDialog('Tchau 😔');
+    } else {
+      session.send('Adorei seu nome '  +session.userData.name +' !');
+      session.beginDialog('getPermission:/');
+    }
   }
 ])
 
