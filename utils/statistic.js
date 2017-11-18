@@ -77,7 +77,7 @@ function verifyTotal(data){
     desfavor += 1
     finall = 'Cuidado! A presença é importante e pelo que percebi você tem muitas faltas';
   }
-  return [msg + '\n\n\n\n' + finall, good, bad];
+  return [msg + '\n'.repeat(4) + finall, good, bad];
 }
 
 // Verifica a situação do aluno com relação as faltas
