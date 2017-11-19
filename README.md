@@ -3,6 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/efa06f5c45b2482b874f111002def805)](https://www.codacy.com/app/M3nin0/posso-faltar-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=M3nin0/posso-faltar-bot&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/283c6f37fa57ade22edd/maintainability)](https://codeclimate.com/github/M3nin0/posso-faltar-bot/maintainability)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+[![chatroom icon](https://patrolavia.github.io/telegram-badge/chat.png)](https://telegram.me/PossoFaltarBot)
 
 Chatbot que utiliza de NPL baseado em intenções que faz a raspagem de dados do SIGA, para facilitar a interação dos alunos da Fatec com o sistema.
 
