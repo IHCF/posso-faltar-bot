@@ -19,7 +19,7 @@ library.library(getRealIntent);
 
 library.dialog('/', [
   (session) => {
-    builder.Prompts.text(session, 'Posso saber qual seu nome?');
+    builder.Prompts.text(session, 'Você já sabe meu nome, pode me falar o seu ?');
   },
   (session, results) => {
     session.userData.name = results.response;
@@ -28,7 +28,7 @@ library.dialog('/', [
       session.send('Então acho que não posso te ajudar');
       session.endDialog('Tchau 😔');
     } else {
-      session.send('Adorei seu nome '  +session.userData.name +' !');
+      session.send('Adorei seu nome '  + session.userData.name +' !');
       session.beginDialog('getPermission:/');
     }
   }

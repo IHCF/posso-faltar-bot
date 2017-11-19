@@ -102,8 +102,11 @@ library.dialog('faltasPerMateria', [
   (session, results) => {
     if (results.response.entity == 'Sim')
       session.replaceDialog('faltasPerMateria');
-    else
+    else{
+      session.send('Certo, precisando de mais alguma coisa, só mandar');
       session.replaceDialog('getIntention:/');
+    }
+
   }
 ])
 module.exports = library
