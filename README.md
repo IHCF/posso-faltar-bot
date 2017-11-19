@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/efa06f5c45b2482b874f111002def805)](https://www.codacy.com/app/M3nin0/posso-faltar-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=M3nin0/posso-faltar-bot&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/283c6f37fa57ade22edd/maintainability)](https://codeclimate.com/github/M3nin0/posso-faltar-bot/maintainability)
 
-Chatbot em NodeJS capaz de raspar dados do SIGA, para resgatar presenças dos alunos da FATEC utilizando PhantomJS.
+Chatbot que utiliza de NPL baseado em intenções que faz a raspagem de dados do SIGA, para facilitar a interação dos alunos da Fatec com o sistema
 
 ## Funcionalidades
 
@@ -11,23 +11,52 @@ Chatbot em NodeJS capaz de raspar dados do SIGA, para resgatar presenças dos al
   * Apresenta dicas para o usuário sobre as faltas.
 * Consultar possibilidade de ausência;
 * Realizar processamento de linguagem natural
-  * Mais liberdade na interação com o usuário.
+  * Mais liberdade na interação com o usuário;
+* Calcula probabilidade de reprovação com base nos pontos positivos e negativos de suas informações;
+* Tenta motivar e ajudar o aluno com problemas de auxência.
 
 ## Interação
 
 A interação com o bot é feita em uma linguagem informal, sem a necessidade de muitas palavras. Inclusive, este é um bot que gosta de ajudar, e não vê a necessidade de muitas palavras para ajudar os alunos. Porém caso seja necessário, ele pode bater um papo.
+
+### Interagindo com o bot
+
+Abaixo é demonstrado algumas formas de interação que podem ser feitas com o bot.
+
+* Perguntando para o bot se pode ou não faltar no dia em que a mensagem está sendo enviada
+
+![posso faltar](./images/posso_faltar.png "Posso faltar hoje ?")
+
+* Pedindo para verificar todas as faltas
+
+![faltas total](./images/todas_faltas.png "Todas as faltas")
+
+* O bot vendo a situação de suas faltas, te passa dicas sobre conteúdos para assistir
+
+![ajuda](./images/recebe_ajuda.png "Ajuda do bot")
 
 ### Demonstração de interação e funcionamento
 
 [![DEMO](./images/back-channel.png)](https://youtu.be/DjYLdhQyDbs)
 
 * OBS: Clique na imagem para ver o bot funcionando
+
 ## Plataformas
 
 Por ser feito utilizando o BotFramework, o bot pode ser utilizados em várias plataformas dentre elas:
 * Telegram;
 * Skype;
-* Slack.
+* Slack;
+* Messeger;
+* Bing channel;
+* Twilio.
+
+## Técnologias utilizadas
+
+* BotFramework;
+* NodeJS;
+* PhantomJS;
+* Dialog Flow.
 
 ## ToDo
 
