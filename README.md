@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/efa06f5c45b2482b874f111002def805)](https://www.codacy.com/app/M3nin0/posso-faltar-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=M3nin0/posso-faltar-bot&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/283c6f37fa57ade22edd/maintainability)](https://codeclimate.com/github/M3nin0/posso-faltar-bot/maintainability)
+[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 Chatbot que utiliza de NPL baseado em intenções que faz a raspagem de dados do SIGA, para facilitar a interação dos alunos da Fatec com o sistema.
 
@@ -19,7 +20,7 @@ Chatbot que utiliza de NPL baseado em intenções que faz a raspagem de dados do
 
 A interação com o bot é feita em uma linguagem informal, sem a necessidade de muitas palavras. Inclusive, este é um bot que gosta de ajudar, e não vê a necessidade de muitas palavras para ajudar os alunos. Porém caso seja necessário, ele pode bater um papo.
 
-### Interagindo com o bot
+### Interagindo com o bot :boom:
 
 Abaixo é demonstrado algumas formas de interação que podem ser feitas com o bot.
 
@@ -43,7 +44,7 @@ OBS: Caso seja necessário reiniciar a conversa basta digitar palavras relaciona
 
 Todas essas podem ser usadas a qualquer momento.
 
-### Demonstração de interação e funcionamento
+### Demonstração de interação e funcionamento :boom:
 
 [![DEMO](./images/back-channel.png)](https://youtu.be/DjYLdhQyDbs)
 
