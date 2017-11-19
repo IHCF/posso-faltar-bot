@@ -14,6 +14,8 @@ const library = new builder.Library('helpUser');
 const getRealIntent = require('./getRealIntent');
 const utils = require('../utils/utils.js');
 
+videos = ['https://www.youtube.com/watch?v=ZmWVJ-vQLEs', 'https://www.youtube.com/watch?v=sXmKaZ-9fWc', 'https://www.youtube.com/watch?v=O5aegzVjCrI', 'https://www.youtube.com/watch?v=NwcXvgJXMkg'];
+
 const intents = utils.intents;
 
 library.dialog('muitasFaltas', [
@@ -24,7 +26,7 @@ library.dialog('muitasFaltas', [
       media: '',
             attachments: [{
               contentType: 'video/mp4',
-              contentUrl: 'https://www.youtube.com/watch?v=ZmWVJ-vQLEs',
+              contentUrl: videos[Math.floor((Math.random() * videos.length))],
               name: 'Vídeo ajuda'
         }]
     });
