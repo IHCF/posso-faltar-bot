@@ -7,6 +7,7 @@
     Felipe Menino
     Filipe Meneses
 */
+
 const builder = require('botbuilder');
 const library = new builder.Library('getCollegeMatters');
 const PossoFaltar = require('fatec-posso-faltar');
@@ -33,6 +34,12 @@ library.dialog('possoFaltarHoje', [
 library.dialog('faltasTotal', [
   (session) => {
 
+    /*
+      retorno[0] = Mensagem que será exibida ao usuário;
+      retorno[1] = Pontos positivos
+      retorno[2] = Pontos negativos
+    */
+
     var retorno = functions.verifyTotal(session.userData.collegeMatters);
     var probabilidade = functions.calcProbabilidade();
 
@@ -58,7 +65,7 @@ library.dialog('faltasTotal', [
     }
     session.send('Apenas lembrando que você tem ' + probabilidade + '% chance de ser aprovado');
 
-    if (parseInt(probabilidade) < 50){
+    if (parseInt(probabilidade) < 70){
       builder.Prompts.choice(session, 'Posso tentar ajudar você', ['Sim', 'Não'], { listStyle: builder.ListStyle.button});
     } else {
       session.send('Você sabe né ? Se precisar de mais alguma coisa é só falar');
@@ -86,12 +93,17 @@ library.dialog('faltasPerMateria', [
         dump[i].nome
       )
     }
-    builder.Prompts.choice(session, 'Qual matéria você deseja consultar as informações', allMetters, { listStyle: builder.ListStyle.button});
+    builder.Prompts.choice(session, 'Matérias do dia de hoje', allMetters, { listStyle: builder.ListStyle.button});
   },
   (session, results) => {
     session.send(functions.verifyEspec(results.response.entity, dump));
-    session.send('Quer ver outra matéria ?');
-    session.replaceDialog('getIntention:/');
+    builder.Prompts.choice(session, 'Deseja verificar outra matéria ?', ['Sim', 'Não'], { listStyle: builder.ListStyle.button});
+  },
+  (session, results) => {
+    if (results.response.entity == 'Sim')
+      session.replaceDialog('faltasPerMateria');
+    else
+      session.replaceDialog('getIntention:/');
   }
 ])
 module.exports = library

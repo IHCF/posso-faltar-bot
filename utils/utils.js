@@ -1,7 +1,11 @@
-const builder = require('botbuilder');
+/*
+  Contém as instâncias de objetos mais utilizadas nos dialogos.
+*/
+
 const restify = require('restify');
-const apiairecognizer = require('api-ai-recognizer');
+const builder = require('botbuilder');
 const config = require('../config/config.json');
+const apiairecognizer = require('api-ai-recognizer');
 
 const recognizer = new apiairecognizer(config.apiai.key);
 const intents = new builder.IntentDialog({
