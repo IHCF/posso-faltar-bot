@@ -61,7 +61,7 @@ Por ser feito utilizando o BotFramework, o bot pode ser utilizados em várias pl
 * Bing channel;
 * Twilio.
 
-## Técnologias utilizadas :fire:
+## Tecnologias utilizadas :fire:
 
 * BotFramework;
 * NodeJS;
