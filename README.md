@@ -15,7 +15,7 @@ Chatbot que utiliza de NPL baseado em intenções que faz a raspagem de dados do
 * Realizar processamento de linguagem natural
   * Mais liberdade na interação com o usuário;
 * Calcula probabilidade de reprovação com base nos pontos positivos e negativos de suas informações;
-* Tenta motivar e ajudar o aluno com problemas de auxência.
+* Tenta motivar e ajudar o aluno com problemas de ausência.
 
 ## Interação :star:
 
